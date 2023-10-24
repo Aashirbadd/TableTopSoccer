@@ -1,0 +1,326 @@
+
+:root {
+    --navy: #25274D;
+    --dusty-navy: #464866;
+    --light-grey: #AAABB8;
+    --light-blue: #2E9CCA;
+    --dusty-blue: #29648A;
+    --grey: #7E8082;
+    --white: #FFF;
+    --white-off-white: #FEF9F7;
+    --black-off-black: #3C3C3C;
+    --black: #1F1F1F;
+    --text-shadow: --white;
+    --left-team-color: blue;
+    --right-team-color: red;
+    height: 100%;
+}
+
+
+body{
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Audiowide', sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: black;
+    color: var(--white-off-white);
+}
+
+img, svg{
+    margin: 0px;
+    padding: 0px, 0px, 0px, 0px;
+    padding-top: 0px;
+    background-color: transparent;
+    border: none;
+}
+
+h1, h2, h3, h4, h5, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+#game--container{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
+
+#hud-container{
+    background-color: rgb(36, 36, 36);
+    background-image: linear-gradient(black, rgb(36, 36, 36), black);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+}
+
+#main-game-field--parent-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-game-field--container{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    position: relative;
+    height: auto;
+    width: 60%;
+}
+
+#main-game-field--img{
+    width: 100%;
+    margin: 0px;
+}
+
+
+.team-box{
+    display: flex;
+    /* background-color: #2E9CCA; */
+    text-align: start;
+    align-items: center;
+    /* position: relative; */
+}
+
+.team--name{
+    font-size: 25px;
+    font-weight: 600;
+    padding: 0px 20px 0px 20px;
+    z-index: 2;
+}
+
+.team--score{
+    font-size: 35px;
+    z-index: 2;
+}
+
+.team-countdown{
+    z-index: 0;
+    height: 10px;
+    position: absolute;
+}
+
+#team-countdown--left{
+    left: 0;
+    background-color: var(--left-team-color);
+    box-shadow: 0px 0px 25px var(--left-team-color), 0px 0px 25px var(--left-team-color);
+    width: 44%;
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 30%;
+}
+
+#team-countdown--right{
+    right: 0;
+    background-color: var(--right-team-color);
+    box-shadow: 0px 0px 25px var(--right-team-color), 0px 0px 25px var(--right-team-color);
+    width: 44%;
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 30%;
+    visibility: hidden;
+}
+
+#menu-box{
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+
+#timer{
+    z-index: 3;
+    font-size: 25px;
+    text-shadow: 0px 0px 10px var(--text-shadow), 0px 0px 10px var(--text-shadow);
+}
+
+#play-button {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 16px solid white;
+    margin-left: 12px;
+    transition: transform .2s;
+}
+
+#play-button:hover {
+    box-shadow: 0 0 21px rgba(255, 0, 0, 0.2); 
+    transform: scale(1.5);
+}
+
+
+#left-team-box{
+    text-shadow: 0px 0px 15px var(--left-team-color), 0px 0px 15px var(--left-team-color);
+}
+
+#right-team-box{
+    text-shadow: 0px 0px 12px var(--right-team-color), 0px 0px 12px var(--right-team-color);
+}
+
+.player{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 5%;
+    
+}
+
+#team-left-player--1{
+    left: 10%;
+    top: 46%;
+}
+
+#team-left-player--2{
+    left: 35%;
+    top: 60%;
+}
+
+#team-left-player--3{
+    left: 35%;
+    top: 30%;
+}
+
+#team-right-player--1{
+    left: 85%;
+    top: 46%;
+}
+
+#team-right-player--2{
+    left: 60%;
+    top: 60%;
+}
+
+#team-right-player--3{
+    left: 60%;
+    top: 30%;
+}
+
+#soccer-ball{
+    position: absolute;
+    width: 3%;
+    top: 48%;
+    left: 48.5%;
+}
+
+@media only screen and (min-width: 1500px) and (max-height: 800px) {
+    #main-game-field--parent-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #main-game-field--container{
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        position: relative;
+        width: auto;
+        height: auto;
+    }
+    
+}
+
+@media only screen and (min-width: 1000px) and (max-height: 800px) {
+    #main-game-field--parent-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #main-game-field--container{
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        position: relative;
+        width: 50%;
+        height: auto;
+    }
+    
+}
+
+@media only screen and (min-width: 1000px) and (max-height: 500px) {
+    #main-game-field--parent-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #main-game-field--container{
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        position: relative;
+        width: 30%;
+        height: auto;
+    }
+    
+}
+
+
+@media only screen and (min-width: 700px) and (max-height: 400px) {
+    #main-game-field--parent-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #main-game-field--container{
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        position: relative;
+        width: 20%;
+        height: auto;
+    }
+    
+}
+
+@media only screen and (max-width: 1300px), (max-height: 800px) {
+    .team--name{
+        font-size: 18px;
+    }
+    
+    .team--score{
+        font-size: 30px;
+        z-index: 2;
+    }
+    
+    .team-countdown{
+        z-index: 0;
+        height: 7px;
+    }
+    
+    #timer{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .team--name{
+        font-size: 12px;
+    }
+    
+    .team--score{
+        font-size: 20px;
+        z-index: 2;
+    }
+    
+    .team-countdown{
+        z-index: 0;
+        height: 4px;
+    }
+    
+    #timer{
+        font-size: 15px;
+    }
+}

@@ -35,10 +35,20 @@ MapGrid. (2019, February 2). A Soccer Ball [Image]. Retrieved from https://commo
 </head>
 <body>
     <div id="game--container">
+        <canvas id="screen" width="2000" height="800"> 
+
+        </canvas>
         <div id="main-game-field--parent-container" >
         
             <div id="main-game-field--container" >
-                <img id="main-game-field--img" src="assets/soccer-field.svg" alt="soccer field background">
+                <div id="soccer-field">
+                    <div id="goal-post-left" class="goal-post" ></div>
+                    <div id="goal-post-right" class="goal-post" ></div>
+                    <div id="center-circle"></div>
+                    <div id="center-line"></div>
+
+                </div>
+                <!-- <img id="main-game-field--img" src="assets/soccer-field.svg" alt="soccer field background"> -->
                 <img src="assets/blue-player.svg" class="player team-left-player" id="team-left-player--1" alt="left-player" >
                 <img src="assets/blue-player.svg" class="player team-left-player" id="team-left-player--2" alt="left-player" >
                 <img src="assets/blue-player.svg" class="player team-left-player" id="team-left-player--3" alt="left-player" >

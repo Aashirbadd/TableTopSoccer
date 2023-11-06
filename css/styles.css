@@ -88,6 +88,48 @@ h1, h2, h3, h4, h5, p {
     margin: 0px;
 }
 
+#soccer-field{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    border: 2px  solid white;
+    position: relative;
+}
+
+.goal-post{
+    position: absolute;
+    background-color: white;
+    height: 20%;
+    width: 3%;
+    top: 40%;
+}
+
+#center-line{
+    position: absolute;
+    background-color: white;
+    left: 49.5%;
+    width: 2px;
+    height: 100%;
+}
+
+#center-circle{
+    position: absolute;
+    background-color: black;
+    top: 35%;
+    left: 39.5%;
+    width: 20%;
+    height: 30%;
+    border-radius: 50%;
+    border: 2px  solid white;
+}
+
+#goal-post-left{
+    left: -10px;
+}
+
+#goal-post-right{
+    right: -10px;
+}
 
 .team-box{
     display: flex;

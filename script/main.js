@@ -7,8 +7,8 @@
 // Main JS Entry Point, Initialize game & set up listners here:
 
 // Import main classses relating to game logic & physics
-import TableTopSoccer from './table-top-soccer';
-import UI from './ui';
+import TableTopSoccer from './TableTopSoccer';
+import UI from './UI';
 
 // Initialize game & UI
 const game = new TableTopSoccer().init;

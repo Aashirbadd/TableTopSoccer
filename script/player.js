@@ -6,7 +6,7 @@
 
 // Player logic & attributes
 
-import * as Constants from './constants';
+import * as Constants from './Constants';
 
 class Player{
     constructor(x, y, color){

@@ -1,6 +1,8 @@
 # TableTopSoccer
 Play soccer on your table top.
 
+<img width="1143" alt="image" src="https://github.com/Aashirbadd/TableTopSoccer/assets/60020431/4ea4e894-d396-4630-8d94-51ecdf4fb725">
+
 **Game Name: Table Top Soccer**
 
 **Target Platform: Desktop**

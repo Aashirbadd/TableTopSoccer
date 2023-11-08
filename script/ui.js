@@ -6,41 +6,37 @@
 
 // This class updates & shows interactions on the UI
 
-class UI{
-    constructor(TableTopSoccer){
-        // Initialize game state on the UI as defined on the TableTopSoccer class
-        // Initialize score board, game timer, who currently has a turn
-    }
+function UI(){
+    // UI Constructor, initialize all properties here
+    this.leftScore = 0;
+    this.rightScore = 0;
+    this.currentTime = "3:00";
+    this.onPauseButtonClick = () => {}
 
-    updateScoreBoard(team){
-        // Update scoreboard for the team member that scores!
-    }
+    this.leftScoreBoard = document.getElementById("L-Score");
+    this.rightScoreBoard = document.getElementById("R-Score");
+    this.timer = document.getElementById("timer");
+    this.pauseButton = document.getElementById("play-button");
+}
 
-    showPauseMenu(){
-        // Show pause menu when paused the game
-    }
+UI.prototype.update = function() {
+    // Updates scoreboard & timer based on variable values set
+    this.leftScoreBoard.textContent = this.leftScore + "/3";
+    this.rightScoreBoard.textContent = this.rightScore + "/3";
+    this.timer.textContent = this.currentTime;
+    this.pauseButton.onclick = this.onPauseButtonClick;
+}
 
-    hidePauseMenu(){
-        // Hide pause menu when resuming the game
-    }
+function SetPopupMessage(title = "vs", text = ""){
+    // Changes the popup message on screen
+    document.getElementById("popup-title").innerText = title;
+    document.getElementById("popup-message").innerText = text;
+}
 
-    setTimer(time){
-        // Reset timer to a specified value
-    }
-
-    startTimer(){
-        // Start counting down the timer
-    }
-
-    stopTimer(){
-        // Pause the timer
-    }
-
-    setTurnTimer(time, team){
-        // Set Turn Timer
-    }
-
-    switchTurn(){
-        // Switch turns between teams
-    }
+UI.prototype.setPopup = function(title = "vs", text = ""){
+    // Sets a popup message for 3s on the screen
+    SetPopupMessage(title, text);
+    setTimeout(function(){
+        SetPopupMessage();
+    }, 3000);
 }

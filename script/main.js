@@ -5,50 +5,65 @@
 // UCID: 3009 2107
 
 // Main JS Entry Point, Initialize game & set up listners here:
+const WIN_SCORE = 3;
 
-// Import main classses relating to game logic & physics
-import TableTopSoccer from './TableTopSoccer';
-import UI from './UI';
+function Main(){
+}
 
-// Initialize game & UI
-const game = new TableTopSoccer().init;
-const ui = new UI().init;
+Main.prototype.init = function(){
+    // Initialize game & UI
+    this.UI = new UI();
+    this.TableTopSoccer = new TableTopSoccer(this.UI); //Game world!
+}
 
-// Create an event listner for starting the game 
-const startButton = document.getElementById("play-button");
-startButton.addEventListener("click", () => {
-    // Use game & ui classes to start the game here
+Main.prototype.start = function(){
+    // Starts the game
+    mainGame.init();
+    mainGame.mainLoop();
+}
 
-    // Setup the game state using game class
+Main.prototype.checkWin = function(){
+    if(this.UI.leftScore < WIN_SCORE && this.UI.rightScore < WIN_SCORE) return;
 
-    // Update those state using the ui
-})
+    let winner = "Right";
+    if(this.UI.leftScore > this.UI.rightScore) winner = "Left";
 
-// Create an event listner for starting the game 
-const pauseButton = document.getElementById("pause-button");
-startButton.addEventListener("click", () => {
-    // Use game & ui classes to pause the game here
+    SetPopupMessage("Game Over", winner + " Team Won!");
 
-    // Pause the game state using game class
+    setTimeout(function(){
+        alert("Game Over! Press okay to restart the game!");
+    }, 1000);
 
-    // Show those changes usign the UI class
-})
+    this.ResetGameState();
+}
 
-// Find all players, and add them to the right TEAM 
-// & add event listeners to them so they can be interacted with
+Main.prototype.ResetGameState = function(){
+    this.UI = new UI();
+    this.TableTopSoccer = new TableTopSoccer(this.UI);
+}
 
-const players = document.getElementsByName("player");
-
-players.forEach(p => {
-    // team.players.add(new Player(p.x, p.y, p.color));
-});
-
+Main.prototype.ResetGameBoard = function(nextTurn){
+    this.TableTopSoccer = new TableTopSoccer(this.UI, nextTurn);
+}
 
 // Main game loop
+// If game is in progress, Update game state, Render updated game state, Update UI elements
+Main.prototype.mainLoop = function(){
+    canvas.clear();
 
-function gameLoop(){
-    // If game is in progress
-        // Update game state
-        // Render updated game state
-        // Update UI elements
+    mainGame.TableTopSoccer.update();
+    mainGame.TableTopSoccer.draw();
+
+    Mouse.reset();
+    Key.reset();
+
+    this.checkWin();
+
+    if(this.TableTopSoccer.goal){
+        this.ResetGameBoard(this.TableTopSoccer.nextTurn);
+    }
+
+    requestAnimationFrame(mainGame.mainLoop.bind(this));
 }
+
+let mainGame = new Main();
